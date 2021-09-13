@@ -1,0 +1,76 @@
+
+<div class="card-centered">
+
+    <form [formGroup]="professionalForm">
+        <div class="form-group col-5 form-check">
+            <h2>Professional Details</h2>
+            <label>Company Name</label>
+            <input type="text" class="form-control" formControlName="cname" required [ngClass]="{ 'is-invalid': submitted && f.cname.errors }"/>
+            
+             <div *ngIf="submitted && f.cname.errors" class="invalid-feedback">
+                <div *ngIf="f.cname.errors.required">
+                    This field is required
+                </div>
+             </div>  
+
+        </div>
+                 <div class="form-group col-5 form-check">
+                    <label>Years of Experience</label>
+                    <input type="number" class="form-control" formControlName="years" required [ngClass]="{ 'is-invalid': submitted && f.yeras.errors }"/>
+                   
+                      <div *ngIf="submitted && f.years.errors" class="invalid-feedback">
+                        <div *ngIf="f.years.errors.required">
+                            This field is required
+                        </div>
+                      </div>  
+                 </div>
+                <div class="form-group col-5 form-check">
+                    <label>Role Title</label>
+                    <input type="text" class="form-control" formControlName="rname" required [ngClass]="{ 'is-invalid': submitted && f.rname.errors }"/>
+                   
+                    <div *ngIf="submitted && f.rname.errors" class="invalid-feedback">
+                        <div *ngIf="f.rname.errors.required">Role Title is required</div>
+                     </div> 
+                </div>
+                <div class="form-group col-5 form-check">
+                    
+                    <label>Salary Range</label>
+                    <div class="col-xm-1">
+                    <input class="form-control" type="number" formControlName="minsalary" required [ngClass]="{ 'is-invalid': submitted && f.minsalary.errors }"/>
+                     <div *ngIf="submitted && f.minsalary.errors" class="invalid-feedback">
+                        <div *ngIf="f.minsalary.errors.required">Salary Range is required</div>
+                     </div> 
+                    <input class="form-control" type="number" formControlName="maxsalary" required [ngClass]="{ 'is-invalid': submitted && f.maxsalary.errors }"/>
+                      <div *ngIf="submitted && f.maxsalary.errors" class="invalid-feedback">
+                        <div *ngIf="f.maxsalary.errors.required">Salary Range is required</div>
+                     </div>         
+                </div>
+
+                   
+                </div>
+             <div class="btn-group">
+                <div class="form-group col-5">
+                     <button class="btn btn-secondary" type="button" (click)="goToPersonal()" name="back">Back</button>
+                </div> 
+                <div class="form-group col-5">
+                    <button class="btn btn-primary" type="button"  (click)="goToSummary()" name="next">Next</button>
+                </div>
+            </div>
+      
+    </form>
+    
+</div>
+
+
+<!-- <div class="container">
+    <h2>Professional Details</h2>
+    <form #personal="ngForm" >
+        Company Name<input type="text" name="cname" ngModel/><br/><br/>
+        Years of Experience<input type="number" name="years" ngModel/><br><br/>
+        Salary Range<input type="range" name="salary" ngModel/><br>
+        Role<input type="text" name="rname" ngModel/>
+    </form>
+
+<button type="button" (click)="goToPersonal()" name="back">Back</button>
+<button type="button"  (click)="goToSummary()" name="next">Next</button>
+</div> -->

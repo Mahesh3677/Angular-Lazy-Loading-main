@@ -1,0 +1,62 @@
+
+<div class="card">
+    <h2>Personal Details</h2>
+    <form [formGroup]="registerForm" method="POST" (ngSubmit)="goToNext()">
+        <div class="form-group col-5 form-check">
+            <label for="First Name">First Name </label>
+            <input type="text" class="form-control" formControlName="firstName" required [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+                  
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">Title is required</div>
+                    </div>
+          </div> 
+        <!-- checkbox -->
+         <div class="form-group col-5 form-check">
+        <label for="ask">Do you have middle name?</label>
+          <div class="form-group col-5">
+        <input type="checkbox" class="form-check-input" name="myChk" id="myChk" [checked]="!isDisabled" (change)="triggerSomeEvent()"  />Yes
+       </div> </div>
+        
+        <div class="form-group col-5 form-check">
+            <label>Middle Name</label>
+         <input type="text" class="form-control" formControlName="middleName"  id="middleName" [disabled]="isDisabled"/>
+                
+                <div *ngIf="submitted && f.middleName.errors" class="invalid-feedback">
+                        <div *ngIf="f.middleName.errors.required">last Name is required</div>
+                    </div>
+        </div>
+        <!-- checkbox -->
+             
+               
+        
+                <div class="form-group col-5 form-check">
+                    <label>Last Name</label>
+                    <input class="form-control" type="text" formControlName="lastName" required [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"/>
+                                     
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">last Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5 form-check">
+                    <label>Mobile Number</label>
+                    <input class="form-control" type="number" formControlName="Mob" required [ngClass]="{ 'is-invalid': submitted && f.Mob.errors }"/>
+                   
+                    <div *ngIf="submitted && f.Mob.errors" class="invalid-feedback">
+                        <div *ngIf="f.Mob.errors.required">Mobile Number is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5 form-check">
+                    <label>Address</label>
+                    <input class="form-control" type="textarea" formControlName="address" required [ngClass]="{ 'is-invalid': submitted && f.address.errors }"/>
+                    
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+               <div class="form-group col-5">  
+        <button class="btn btn-primary" type="button" (click)="goToNext()" name="next">Next</button>
+      </div> 
+    </form>
+    </div>
+
+
